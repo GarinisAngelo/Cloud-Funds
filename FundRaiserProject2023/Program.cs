@@ -1,8 +1,10 @@
+using FundRaiserProject2023.DbContexts;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<OurDbContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -16,8 +16,7 @@ namespace FundRaiserProject2023.DbContexts
         //     private readonly string connectionString = "Data Source=(local);Initial Catalog=Crm-2023;" +
         //        "User Id=sa; Password=passw0rd;TrustServerCertificate=True;";
 
-        private readonly string connectionString = "Data Source=(local);Initial Catalog=FundRaiser-2023;" +
-        " Integrated security=true;TrustServerCertificate=True;";
+        private readonly string connectionString = "Data Source=DESKTOP-BJT7OC9\\MSSQLSERVER2023; Initial Catalog=FundRaiser; User Id=sa; password=Jd64!xvW; TrustServerCertificate=True";
 
 
         public DbSet<Backer> Backers { get; set; }
