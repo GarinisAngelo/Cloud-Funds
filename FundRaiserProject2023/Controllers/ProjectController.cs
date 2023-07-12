@@ -10,16 +10,16 @@ using FundRaiserProject2023.Models;
 
 namespace FundRaiserProject2023.Controllers
 {
-    public class ProjectsController : Controller
+    public class ProjectController : Controller
     {
         private readonly OurDbContext _context;
 
-        public ProjectsController(OurDbContext context)
+        public ProjectController(OurDbContext context)
         {
             _context = context;
         }
 
-        // GET: Projects
+        // GET: Project
         public async Task<IActionResult> Index()
         {
               return _context.Projects != null ? 
@@ -27,7 +27,7 @@ namespace FundRaiserProject2023.Controllers
                           Problem("Entity set 'OurDbContext.Projects'  is null.");
         }
 
-        // GET: Projects/Details/5
+        // GET: Project/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -45,13 +45,13 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Projects/Create
+        // GET: Project/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Projects/Create
+        // POST: Project/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +67,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Projects/Edit/5
+        // GET: Project/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -83,7 +83,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // POST: Projects/Edit/5
+        // POST: Project/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +118,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Projects/Delete/5
+        // GET: Project/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -136,7 +136,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // POST: Projects/Delete/5
+        // POST: Project/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
