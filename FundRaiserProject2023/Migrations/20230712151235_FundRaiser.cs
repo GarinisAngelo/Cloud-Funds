@@ -5,7 +5,7 @@
 namespace FundRaiserProject2023.Migrations
 {
     /// <inheritdoc />
-    public partial class FundRaiser2023DB : Migration
+    public partial class FundRaiser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

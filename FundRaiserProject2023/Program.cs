@@ -2,8 +2,8 @@ using FundRaiserProject2023.Services;
 using Microsoft.Data.SqlClient;
 
 //connection to database
-//var ConnectToDB = new ConnectToDB();
-//ConnectToDB.Connect();
+var ConnectToDB = new ConnectToDB();
+ConnectToDB.Connect();
 
 
 //application start

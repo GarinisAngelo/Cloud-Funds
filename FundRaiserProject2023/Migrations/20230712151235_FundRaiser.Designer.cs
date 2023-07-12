@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FundRaiserProject2023.Migrations
 {
     [DbContext(typeof(OurDbContext))]
-    [Migration("20230712130613_FundRaiser2023-DB")]
-    partial class FundRaiser2023DB
+    [Migration("20230712151235_FundRaiser")]
+    partial class FundRaiser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

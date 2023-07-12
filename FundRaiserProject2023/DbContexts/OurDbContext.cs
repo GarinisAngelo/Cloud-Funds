@@ -16,7 +16,7 @@ namespace FundRaiserProject2023.DbContexts
         //     private readonly string connectionString = "Data Source=(local);Initial Catalog=Crm-2023;" +
         //        "User Id=sa; Password=passw0rd;TrustServerCertificate=True;";
 
-        private readonly string connectionString = "Server=tcp:fundraiser2023-server.database.windows.net,1433;Initial Catalog=FundRaiser2023-DB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";";
+        private readonly string connectionString = "Server=tcp:fundraiser2023newserver.database.windows.net,1433;Initial Catalog=FundRaiser2023DB;Persist Security Info=False;User ID=superadmin;Password=Password!@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 
         public DbSet<Backer> Backers { get; set; }
