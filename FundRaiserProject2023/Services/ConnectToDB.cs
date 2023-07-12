@@ -13,7 +13,7 @@ namespace FundRaiserProject2023.Services
         {
             Console.WriteLine("Getting Connection...");
             //Your Connection string here
-            string connectionString = "Data Source=(local); Initial Catalog=MyTestFundRaiserDB; Integrated security=true; TrustServerCertificate=True";
+            string connectionString = "Server=tcp:fundraiser2023-server.database.windows.net,1433;Initial Catalog=FundRaiser2023-DB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";";
             using var connection = new SqlConnection(connectionString);
             try
             {
