@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 //connection to database
 var ConnectToDB = new ConnectToDB();
 ConnectToDB.Connect();
+Console.WriteLine("Connection Successful");
 
 
 //application start
