@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  
 }
 
 @media (min-width: 768px) {
@@ -27,20 +28,21 @@ body {
     /*background: #D38312; 
     background: -webkit-linear-gradient(to top, #A83279, #D38312); 
     background: linear-gradient(to top, #A83279, #D38312);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: #70e1f5; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ffd194, #70e1f5); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    padding: 0;
+    background: #70e1f5; 
+    background: -webkit-linear-gradient(to top, #ffd194, #70e1f5); 
+    background: linear-gradient(to top, #ffd194, #70e1f5); 
+    
 }
 
-.header {
+/*.header {
     margin: 0;
+    padding: 0px;
     text-align: center;
-    background: #1abc9c;
+    background: #071952;
     color: white;
-    font-size: 30px;
-}
+}*/
+
+
 
 h1 {
     font-size: 5.34rem;
