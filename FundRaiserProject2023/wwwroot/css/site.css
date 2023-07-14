@@ -34,13 +34,13 @@ body {
     
 }
 
-/*.header {
-    margin: 0;
+.header {
+    margin: 100px;
     padding: 0px;
     text-align: center;
     background: #071952;
     color: white;
-}*/
+}
 
 
 
@@ -124,16 +124,20 @@ hr {
     margin: 40px auto 60px;
 }
 
+
+
+
+
 .btn {
     font-family: Arial;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 400;
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
-    border-radius: 28px;
-    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+    padding: 5px 8px 5px 8px;
     text-decoration: none;
-    height: 60px;
+    height: 30px;
     border: 0px solid;
     background-image: linear-gradient(45deg,blue,#00f0a0,blue);
     background-size: 500% 400%;
@@ -142,7 +146,23 @@ hr {
     transition: 0.6s all;
 }
 
-    .btn:hover {
+.details {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    background-image: linear-gradient(45deg,#215f00,#e4e4d9,#215f00);
+    transition: 0.6s all;
+}
+
+
+.delete {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    background-image: linear-gradient(45deg,#556270,#FF6B6B,#556270);
+    transition: 0.6s all;
+}
+
+
+.btn:hover {
         background-position: 75% 50%;
         transform: perspective(100px)
     }
