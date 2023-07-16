@@ -22,6 +22,7 @@ namespace FundRaiserProject2023.Controllers
         {
             return View();
         }
+
         public IActionResult WelcomePage()
         {
             return View();

@@ -5,13 +5,13 @@
 namespace FundRaiserProject2023.Migrations
 {
     /// <inheritdoc />
-    public partial class FundRaiser : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "ProjectCreators",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -20,24 +20,7 @@ namespace FundRaiserProject2023.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProjectCreators",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
                     table.PrimaryKey("PK_ProjectCreators", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProjectCreators_Users_Id",
-                        column: x => x.Id,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,7 +49,9 @@ namespace FundRaiserProject2023.Migrations
                 name: "Backers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProjectId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -77,12 +62,6 @@ namespace FundRaiserProject2023.Migrations
                         column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Backers_Users_Id",
-                        column: x => x.Id,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -257,9 +236,6 @@ namespace FundRaiserProject2023.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProjectCreators");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }

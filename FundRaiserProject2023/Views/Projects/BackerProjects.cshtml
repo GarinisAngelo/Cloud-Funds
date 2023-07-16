@@ -1,0 +1,70 @@
+﻿@using Microsoft.EntityFrameworkCore;
+@model IEnumerable<FundRaiserProject2023.Models.Project>
+
+@{
+    ViewData["Title"] = "Available Projects";
+    Layout = "~/Views/Shared/_BackerLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectPhotos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectVideos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FundingGoal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentFunding)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td> 
+            <td>
+                @foreach (var photo in item.ProjectPhotos)
+                {
+                    @photo.PhotoName
+                    <br />
+                }
+            </td>
+            <td>
+                @foreach (var video in item.ProjectVideos)
+                {
+                    @video.VideoName
+                    <br />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FundingGoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentFunding)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Fund this Project</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

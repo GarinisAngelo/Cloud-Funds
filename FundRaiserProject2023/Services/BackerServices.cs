@@ -62,7 +62,7 @@ namespace FundRaiserProject2023.Services
                 .FirstOrDefault();
             if (backer != null)
             {
-                backer.User.Name = newName;
+                backer.Name = newName;
                 _ourDbContext.SaveChanges();
             }
 

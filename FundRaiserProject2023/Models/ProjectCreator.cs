@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 namespace FundRaiserProject2023.Models
 {
     /*  ProjectCreator
-        {Projects} |User| */
+        {Projects}*/
 
     public class ProjectCreator
-    {
-        [Key, ForeignKey("User")]
+    {        
         public int Id { get; set; }
-        public virtual User? User { get; set; }
+        public string? Name { get; set; }
         public virtual IEnumerable<Project> Projects { get; set; } = new List<Project>();
     }
 }

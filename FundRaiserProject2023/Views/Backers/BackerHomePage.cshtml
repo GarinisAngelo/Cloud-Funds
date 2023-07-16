@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_BackerLayout.cshtml";
+
+}
+
+<style>
+    /*
+            Removes the hover over feature that GIPHY has to search for more gifs
+            Now its just a gif. Nothing more, nothing less.
+        */
+    .no-hover {
+        pointer-events: none;
+    }
+</style>
+
+<div class="text-center">
+    <h1>Welcome</h1>
+    <p>Welcome to our crowdfunding platform, where dreams become reality! We are thrilled to have you join our community of passionate creators and enthusiastic backers. Whether you have a groundbreaking idea or a creative project that needs support, this platform is designed to connect visionaries like you with individuals who are eager to contribute and make a difference. From innovative startups to artistic endeavors, we believe that every project deserves a chance to flourish. Explore the diverse range of projects, be inspired by the incredible talent, and become part of the journey as we collectively bring extraordinary ideas to life. Together, let's unleash the power of collaboration and turn dreams into impactful realities. Welcome to a world of endless possibilities!</p>
+
+    <div class="no-hover">
+        <iframe src="https://giphy.com/embed/KTch8alOZ9yc8" width="480" height="336" frameBorder="0" allowFullScreen></iframe>
+    </div>
+
+</div>

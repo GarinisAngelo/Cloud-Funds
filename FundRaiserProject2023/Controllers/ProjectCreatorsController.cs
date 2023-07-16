@@ -22,8 +22,9 @@ namespace FundRaiserProject2023.Controllers
         // GET: ProjectCreators
         public async Task<IActionResult> Index()
         {
-            var ourDbContext = _context.ProjectCreators.Include(p => p.User);
-            return View(await ourDbContext.ToListAsync());
+              return _context.ProjectCreators != null ? 
+                          View(await _context.ProjectCreators.ToListAsync()) :
+                          Problem("Entity set 'OurDbContext.ProjectCreators'  is null.");
         }
 
         // GET: ProjectCreators/Details/5
@@ -35,7 +36,6 @@ namespace FundRaiserProject2023.Controllers
             }
 
             var projectCreator = await _context.ProjectCreators
-                .Include(p => p.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (projectCreator == null)
             {
@@ -48,7 +48,6 @@ namespace FundRaiserProject2023.Controllers
         // GET: ProjectCreators/Create
         public IActionResult Create()
         {
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -57,7 +56,7 @@ namespace FundRaiserProject2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] ProjectCreator projectCreator)
+        public async Task<IActionResult> Create([Bind("Id,Name")] ProjectCreator projectCreator)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +64,6 @@ namespace FundRaiserProject2023.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", projectCreator.Id);
             return View(projectCreator);
         }
 
@@ -82,7 +80,6 @@ namespace FundRaiserProject2023.Controllers
             {
                 return NotFound();
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", projectCreator.Id);
             return View(projectCreator);
         }
 
@@ -91,7 +88,7 @@ namespace FundRaiserProject2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] ProjectCreator projectCreator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] ProjectCreator projectCreator)
         {
             if (id != projectCreator.Id)
             {
@@ -118,7 +115,6 @@ namespace FundRaiserProject2023.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", projectCreator.Id);
             return View(projectCreator);
         }
 
@@ -131,7 +127,6 @@ namespace FundRaiserProject2023.Controllers
             }
 
             var projectCreator = await _context.ProjectCreators
-                .Include(p => p.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (projectCreator == null)
             {

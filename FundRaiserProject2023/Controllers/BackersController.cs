@@ -19,11 +19,17 @@ namespace FundRaiserProject2023.Controllers
             _context = context;
         }
 
+        public IActionResult BackerHomePage()
+        {
+            return View();
+        }
+
         // GET: Backers
         public async Task<IActionResult> Index()
         {
-            var ourDbContext = _context.Backers.Include(b => b.User);
-            return View(await ourDbContext.ToListAsync());
+              return _context.Backers != null ? 
+                          View(await _context.Backers.ToListAsync()) :
+                          Problem("Entity set 'OurDbContext.Backers'  is null.");
         }
 
         // GET: Backers/Details/5
@@ -35,7 +41,6 @@ namespace FundRaiserProject2023.Controllers
             }
 
             var backer = await _context.Backers
-                .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (backer == null)
             {
@@ -48,7 +53,6 @@ namespace FundRaiserProject2023.Controllers
         // GET: Backers/Create
         public IActionResult Create()
         {
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -57,7 +61,7 @@ namespace FundRaiserProject2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id")] Backer backer)
+        public async Task<IActionResult> Create([Bind("Id,Name")] Backer backer)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +69,6 @@ namespace FundRaiserProject2023.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", backer.Id);
             return View(backer);
         }
 
@@ -82,7 +85,6 @@ namespace FundRaiserProject2023.Controllers
             {
                 return NotFound();
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", backer.Id);
             return View(backer);
         }
 
@@ -91,7 +93,7 @@ namespace FundRaiserProject2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id")] Backer backer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Backer backer)
         {
             if (id != backer.Id)
             {
@@ -118,7 +120,6 @@ namespace FundRaiserProject2023.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id", backer.Id);
             return View(backer);
         }
 
@@ -131,7 +132,6 @@ namespace FundRaiserProject2023.Controllers
             }
 
             var backer = await _context.Backers
-                .Include(b => b.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (backer == null)
             {

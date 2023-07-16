@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FundRaiserProject2023.Models.RewardPackage>
+﻿@model IEnumerable<FundRaiserProject2023.Models.Project>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.PackageName)
+                @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PackageAmount)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RewardDescription)
+                @Html.DisplayNameFor(model => model.FundingGoal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentFunding)
             </th>
             <th></th>
         </tr>
@@ -28,13 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.PackageName)
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PackageAmount)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RewardDescription)
+                @Html.DisplayFor(modelItem => item.FundingGoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentFunding)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

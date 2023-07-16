@@ -10,16 +10,26 @@ using FundRaiserProject2023.Models;
 
 namespace FundRaiserProject2023.Controllers
 {
-    public class ProjectController : Controller
+    public class ProjectsController : Controller
     {
         private readonly OurDbContext _context;
 
-        public ProjectController(OurDbContext context)
+        public ProjectsController(OurDbContext context)
         {
             _context = context;
         }
 
-        // GET: Project
+        public IActionResult FundedProjects()
+        {
+            return View();
+        }
+
+        public IActionResult BackerProjects()
+        {
+            return View(_context.Projects.Include("ProjectPhotos").Include("ProjectVideos").ToList());
+        }
+
+        // GET: Projects
         public async Task<IActionResult> Index()
         {
               return _context.Projects != null ? 
@@ -27,7 +37,7 @@ namespace FundRaiserProject2023.Controllers
                           Problem("Entity set 'OurDbContext.Projects'  is null.");
         }
 
-        // GET: Project/Details/5
+        // GET: Projects/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -45,13 +55,18 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Project/Create
+        // GET: Projects/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Project/Create
+        public IActionResult PCCreate()
+        {
+            return View();
+        }
+
+        // POST: Projects/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +82,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Project/Edit/5
+        // GET: Projects/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -83,7 +98,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // POST: Project/Edit/5
+        // POST: Projects/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +133,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // GET: Project/Delete/5
+        // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Projects == null)
@@ -136,7 +151,7 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        // POST: Project/Delete/5
+        // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

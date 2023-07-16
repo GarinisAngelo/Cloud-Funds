@@ -27,7 +27,6 @@ namespace FundRaiserProject2023.DbContexts
         public DbSet<RewardPackage> RewardPackages { get; set; }
         public DbSet<ProjectPhotos> ProjectPhotos { get; set; }
         public DbSet<ProjectVideos> ProjectVideos { get; set; }
-        public DbSet<User> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

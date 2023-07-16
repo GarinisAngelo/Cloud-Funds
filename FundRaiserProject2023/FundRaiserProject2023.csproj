@@ -8,6 +8,51 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Backers\Create.cshtml" />
+    <None Include="Views\Backers\Delete.cshtml" />
+    <None Include="Views\Backers\Details.cshtml" />
+    <None Include="Views\Backers\Edit.cshtml" />
+    <None Include="Views\Backers\Index.cshtml" />
+    <None Include="Views\Categories\Create.cshtml" />
+    <None Include="Views\Categories\Delete.cshtml" />
+    <None Include="Views\Categories\Details.cshtml" />
+    <None Include="Views\Categories\Edit.cshtml" />
+    <None Include="Views\Categories\Index.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\Home\WelcomePage.cshtml" />
+    <None Include="Views\ProjectCreators\Create.cshtml" />
+    <None Include="Views\ProjectCreators\Delete.cshtml" />
+    <None Include="Views\ProjectCreators\Details.cshtml" />
+    <None Include="Views\ProjectCreators\Edit.cshtml" />
+    <None Include="Views\ProjectCreators\Index.cshtml" />
+    <None Include="Views\ProjectFundings\Create.cshtml" />
+    <None Include="Views\ProjectFundings\Delete.cshtml" />
+    <None Include="Views\ProjectFundings\Details.cshtml" />
+    <None Include="Views\ProjectFundings\Edit.cshtml" />
+    <None Include="Views\ProjectFundings\Index.cshtml" />
+    <None Include="Views\ProjectPhotos\Create.cshtml" />
+    <None Include="Views\ProjectPhotos\Delete.cshtml" />
+    <None Include="Views\ProjectPhotos\Details.cshtml" />
+    <None Include="Views\ProjectPhotos\Edit.cshtml" />
+    <None Include="Views\ProjectPhotos\Index.cshtml" />
+    <None Include="Views\ProjectVideos\Create.cshtml" />
+    <None Include="Views\ProjectVideos\Delete.cshtml" />
+    <None Include="Views\ProjectVideos\Details.cshtml" />
+    <None Include="Views\ProjectVideos\Edit.cshtml" />
+    <None Include="Views\ProjectVideos\Index.cshtml" />
+    <None Include="Views\RewardPackages\Create.cshtml" />
+    <None Include="Views\RewardPackages\Delete.cshtml" />
+    <None Include="Views\RewardPackages\Details.cshtml" />
+    <None Include="Views\RewardPackages\Edit.cshtml" />
+    <None Include="Views\RewardPackages\Index.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\Shared\_WelcomeLayout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
       <PrivateAssets>all</PrivateAssets>

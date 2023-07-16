@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 namespace FundRaiserProject2023.Models
 {
     /*  Backer
-        {ProjectFunding} |User|*/
+        {ProjectFunding}*/
 
     public class Backer
     {
-        [Key, ForeignKey("User")]
         public int Id { get; set; }
-        public virtual User? User { get; set; }
+        public string? Name { get; set; }
         public virtual IEnumerable<ProjectFunding> ProjectFundings { get; set; } = new List<ProjectFunding>();
     }
 }

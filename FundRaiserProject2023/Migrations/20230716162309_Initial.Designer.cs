@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FundRaiserProject2023.Migrations
 {
     [DbContext(typeof(OurDbContext))]
-    [Migration("20230712152346_fundraiser2023")]
-    partial class fundraiser2023
+    [Migration("20230716162309_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,13 @@ namespace FundRaiserProject2023.Migrations
             modelBuilder.Entity("FundRaiserProject2023.Models.Backer", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProjectId")
                         .HasColumnType("int");
@@ -94,7 +100,13 @@ namespace FundRaiserProject2023.Migrations
             modelBuilder.Entity("FundRaiserProject2023.Models.ProjectCreator", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -202,35 +214,11 @@ namespace FundRaiserProject2023.Migrations
                     b.ToTable("RewardPackages");
                 });
 
-            modelBuilder.Entity("FundRaiserProject2023.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
             modelBuilder.Entity("FundRaiserProject2023.Models.Backer", b =>
                 {
-                    b.HasOne("FundRaiserProject2023.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("FundRaiserProject2023.Models.Project", null)
                         .WithMany("Backers")
                         .HasForeignKey("ProjectId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FundRaiserProject2023.Models.Category", b =>
@@ -249,17 +237,6 @@ namespace FundRaiserProject2023.Migrations
                         .HasForeignKey("ProjectCreatorId");
 
                     b.Navigation("ProjectCreator");
-                });
-
-            modelBuilder.Entity("FundRaiserProject2023.Models.ProjectCreator", b =>
-                {
-                    b.HasOne("FundRaiserProject2023.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("FundRaiserProject2023.Models.ProjectFunding", b =>
