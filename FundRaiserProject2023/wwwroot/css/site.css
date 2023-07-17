@@ -48,7 +48,7 @@ body {
 
 h1 {
     font-size: 5.34rem;
-    margin-top: 110px;
+    margin-top: 8%;
     font-family: 'Sacramento', sans-serif;
     color: #FFF9F9;
     width: 100%;
@@ -57,11 +57,14 @@ h1 {
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    color: #E5E3C9;
-    font-weight: normal;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    font-family: 'Sacramento', sans-serif;
+    color: #FFF9F9;
+    width: 100%;
     height: 10%;
+    padding: 0;
 }
 
 
@@ -134,8 +137,8 @@ p {
     font-family: Arial;
     font-size: 1rem;
     font-weight: 400;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
     border-radius: 8px;
     padding: 5px 8px 5px 8px;
     text-decoration: none;
@@ -149,16 +152,16 @@ p {
 }
 
 .details {
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
     background-image: linear-gradient(45deg,#215f00,#e4e4d9,#215f00);
     transition: 0.6s all;
 }
 
 
 .delete {
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
+    -webkit-border-radius: 28px;
+    -moz-border-radius: 28px;
     background-image: linear-gradient(45deg,#556270,#FF6B6B,#556270);
     transition: 0.6s all;
 }
@@ -194,6 +197,6 @@ p {
     margin-bottom: 100px;
 }
 
-.table{
+table{
     margin-top: 2rem;
 }

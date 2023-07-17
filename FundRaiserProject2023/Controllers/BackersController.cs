@@ -49,6 +49,11 @@ namespace FundRaiserProject2023.Controllers
             return View(backer);
         }
 
+        public IActionResult BackerCreateSuccessful()
+        {
+            return View();
+        }
+
         // GET: Backers
         public async Task<IActionResult> Index()
         {

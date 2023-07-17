@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_BackerLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Available Projects</h1>
 
 <table class="table">
     <thead>
@@ -14,20 +14,23 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProjectPhotos)
+            @Html.DisplayNameFor(model => model.ProjectPhotos)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProjectVideos)
-            </th>
+            @Html.DisplayNameFor(model => model.ProjectVideos)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.FundingGoal)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CurrentFunding)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectCreator)
             </th>
             <th></th>
         </tr>
@@ -38,23 +41,23 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td> 
             <td>
-                @foreach (var photo in item.ProjectPhotos)
-                {
-                    @photo.PhotoName
-                    <br />
-                }
+            @foreach (var photo in item.ProjectPhotos)
+            {
+            @photo.PhotoName
+            <br />
+            }
             </td>
             <td>
-                @foreach (var video in item.ProjectVideos)
-                {
-                    @video.VideoName
-                    <br />
-                }
-            </td>
+            @foreach (var video in item.ProjectVideos)
+            {
+            @video.VideoName
+            <br />
+            }
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FundingGoal)
             </td>
@@ -62,7 +65,11 @@
                 @Html.DisplayFor(modelItem => item.CurrentFunding)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Fund this Project</a>
+                @Html.DisplayFor(modelItem => item.ProjectCreator.Name)
+            </td>
+            <td>
+                <a asp-action="BackerDetails" asp-route-id="@item.Id" class="btn details">Project Details</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn">Fund this Project</a>
             </td>
         </tr>
 }

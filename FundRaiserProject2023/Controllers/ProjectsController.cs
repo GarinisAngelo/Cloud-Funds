@@ -26,7 +26,24 @@ namespace FundRaiserProject2023.Controllers
 
         public IActionResult BackerProjects()
         {
-            return View(_context.Projects.Include("ProjectPhotos").Include("ProjectVideos").ToList());
+            return View(_context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").ToList());
+        }
+
+        public async Task<IActionResult> BackerDetails(int? id)
+        {
+            if (id == null || _context.Projects == null)
+            {
+                return NotFound();
+            }
+
+            var project = await _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator")
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return View(project);
         }
 
         // GET: Projects
