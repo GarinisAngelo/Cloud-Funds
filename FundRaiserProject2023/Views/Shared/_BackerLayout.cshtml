@@ -25,7 +25,7 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" >
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Backers" asp-action="Create">Register as a Backer</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Backers" asp-action="BackerCreate">Register as a Backer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Projects" asp-action="BackerProjects">Available Projects</a>
@@ -48,15 +48,19 @@
     </div>
 
     <hr class="hr hr-blurry" />
+    
+    @*<footer class="border-top footer text-muted" id="footer">
+    <div class="container-fluid">
+    <p class="footer-p"> <img src="~/images/copyright.png" alt="" class="copyright"> Team 5 - FundRaiser Project 2023 &copy; </p>
+    <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>*@
 
-    <footer class="border-top footer text-muted" id="footer">
-        <div class="container-fluid">
-            <p class="footer-p"> <img src="images/copyright.png" alt="" class="copyright"> 2023 - FundRaiserProject2023 </p> <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    
+    
 </body>
 </html>

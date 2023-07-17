@@ -24,14 +24,16 @@ html {
 body {
     margin: 0;
     text-align: center;
-    font-family: 'Merriweather', serif;
+    font-family: 'Sacramento', sans-serif;
+    font-size: 1rem;
     /*background: #D38312; 
     background: -webkit-linear-gradient(to top, #A83279, #D38312); 
-    background: linear-gradient(to top, #A83279, #D38312);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: #70e1f5; 
-    background: -webkit-linear-gradient(to top, #ffd194, #70e1f5); 
-    background: linear-gradient(to top, #ffd194, #70e1f5); 
-    
+    background: linear-gradient(to top, #A83279, #D38312);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+    background: #70e1f5;
+    background: -webkit-linear-gradient(to top, #ffd194, #70e1f5);
+    background: linear-gradient(to top, #ffd194, #70e1f5);
+    /*background: rgb(232,152,187);
+    background: linear-gradient(180deg, rgba(232,152,187,1) 0%, rgba(110,168,236,1) 100%);*/
 }
 
 .header {
@@ -47,7 +49,7 @@ body {
 h1 {
     font-size: 5.34rem;
     margin-top: 20px;
-    font-family: 'Sacramento', cursive;
+    font-family: 'Sacramento', sans-serif;
     margin: 50px auto 0 auto;
     color: #FFF9F9;
     width: 100%;
@@ -76,6 +78,9 @@ a {
 }
 
 p {
+    font-family: 'Sacramento', sans-serif;
+    font-size: 1.2rem;
+    padding-top: 30px;
     padding-bottom: 30px;
     width: 100%;
     min-width: 250px;
@@ -182,3 +187,14 @@ hr {
     padding-left: 15px;
 }
 
+.centered-form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.table{
+    margin-top: 2rem;
+}

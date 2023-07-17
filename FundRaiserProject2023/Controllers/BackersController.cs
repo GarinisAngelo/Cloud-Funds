@@ -24,6 +24,31 @@ namespace FundRaiserProject2023.Controllers
             return View();
         }
 
+        public async Task<IActionResult> BackerIndex()
+        {
+            return _context.Backers != null ?
+                        View(await _context.Backers.ToListAsync()) :
+                        Problem("Entity set 'OurDbContext.Backers'  is null.");
+        }
+
+        public IActionResult BackerCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BackerCreate([Bind("Id,Name")] Backer backer)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(backer);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(backer);
+        }
+
         // GET: Backers
         public async Task<IActionResult> Index()
         {
