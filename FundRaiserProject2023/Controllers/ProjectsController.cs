@@ -78,10 +78,7 @@ namespace FundRaiserProject2023.Controllers
             return View();
         }
 
-        public IActionResult PCCreate()
-        {
-            return View();
-        }
+        
 
         // POST: Projects/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -98,6 +95,37 @@ namespace FundRaiserProject2023.Controllers
             }
             return View(project);
         }
+
+        public IActionResult PCCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> PCCreate([Bind("Id,Title,Description,FundingGoal,CurrentFunding")] Project project,
+            [Bind("Name")] ProjectCreator projectCreator,
+            [Bind("PhotoName")] ProjectPhotos projectPhotos,
+            [Bind("VideoName")] ProjectVideos projectVideos)
+        {
+            if (ModelState.IsValid)
+            {             
+                _context.Projects.Add(project);
+                var CreatorName = await _context.ProjectCreators.FindAsync(projectCreator);
+                var PName = await _context.ProjectPhotos.FindAsync(projectPhotos);
+                var VName = await _context.ProjectVideos.FindAsync(projectVideos);
+
+                project.ProjectCreator = CreatorName;
+                project.ProjectPhotos = (IEnumerable<ProjectPhotos>)PName;
+                project.ProjectVideos = (IEnumerable<ProjectVideos>)VName;
+
+
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(project);
+        }
+
 
         // GET: Projects/Edit/5
         public async Task<IActionResult> Edit(int? id)
