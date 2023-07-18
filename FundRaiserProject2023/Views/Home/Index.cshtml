@@ -2,22 +2,54 @@
     ViewData["Title"] = "Home Page";
 }
 
-<style>
-    /*
-        Removes the hover over feature that GIPHY has to search for more gifs
-        Now its just a gif. Nothing more, nothing less.
-    */
-    .no-hover{
-        pointer-events: none;
-    }
-</style>
-
-<div class="text-center">
-    <h1>Welcome</h1>
-    <p>Welcome to our crowdfunding platform, where dreams become reality! We are thrilled to have you join our community of passionate creators and enthusiastic backers. Whether you have a groundbreaking idea or a creative project that needs support, this platform is designed to connect visionaries like you with individuals who are eager to contribute and make a difference. From innovative startups to artistic endeavors, we believe that every project deserves a chance to flourish. Explore the diverse range of projects, be inspired by the incredible talent, and become part of the journey as we collectively bring extraordinary ideas to life. Together, let's unleash the power of collaboration and turn dreams into impactful realities. Welcome to a world of endless possibilities!</p>
-
-    <div class="no-hover">
-        <iframe src="https://giphy.com/embed/KTch8alOZ9yc8" width="480" height="336" frameBorder="0" allowFullScreen></iframe>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="~/images/sports.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>The only one <br> who can tell you <br> you cant win <br> is you and you <br> dont have to listen.</h5>
+                <p>Jessica Ennis-Hill</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="~/images/music.jpg" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Music expresses that <br> which cannot be said <br> and on which it is <br> impossible to be silent</h5>
+                <p>Victor Hugo</p>
+            </div>
+            
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="~/images/science.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>
+                    When I investigate and when <br> I discover that the forces of <br> the heavens and the planets <br> are within ourselves, <br>
+                    then truly I seem <br> to be living among the gods
+                </h5>
+                <p>Leon Battista Alberti</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="~/images/arts.jpg" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>I found I could say <br> things with color and  <br> shapes that I couldn't <br> say any other way - <br> things I had no words for.</h5>
+                <p>Georgia O'Keeffe</p>
+            </div>
+        </div>
     </div>
-    
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
+
+

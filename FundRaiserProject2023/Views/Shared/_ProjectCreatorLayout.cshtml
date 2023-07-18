@@ -16,6 +16,7 @@
    <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
             <div class="container-fluid">
+                <a class="text-decoration-none rounded-pill" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" class="image"></a>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cloud-Funds</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +26,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" >
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="ProjectCreators" asp-action="Index">Creators</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="ProjectFundings" asp-action="Index">Fundings</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
