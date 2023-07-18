@@ -10,18 +10,28 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+   
 </head>
 <body>
    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
+       <!-- 
+           <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cloud-Funds</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-   
+        -->
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3 fixed-top">
+             <div class="container-fluid">
+                <a class="text-decoration-none rounded-pill" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/logo.png" class="image"></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cloud-Funds</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1" >
                         <li class="nav-item">
@@ -31,13 +41,30 @@
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Backers" asp-action="Index">Backer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Projects" asp-action="Index">Projects</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="ProjectCreators" asp-action="Index">Project Creator</a>
+                        </li>
+                        <li class="nav-item dropdown "> <!-- DROP DOWN LIST NEED TO BE DYNAMIC -->
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Topics</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Music</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Science</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Arts</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Sports</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
+                <ul class="navbar-nav ms-auto"> <!-- LOG IN SIGN UP DOESNT WORK-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log in</a>
+                    </li>
+                    <li class="nav-item" style="margin-right: 10px;">
+                        <a class="nav-link" href="#">Sign up</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -49,14 +76,14 @@
             @RenderBody()
         </main>
     </div>
-
-    <hr class="hr hr-blurry" />
-
-    <footer class="border-top footer text-muted" id="footer">
+    
+    
+    <footer class="border-top footer text-muted bg-dark" id="footer">
         <div class="container-fluid">
-            <p class="footer-p"> @*<img src="~/images/copyright.png" alt="" class="copyright">*@ Team 5 - FundRaiser Project 2023 &copy;</p> <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <p class="footer-p"> <img src="~/images/copyright.png" alt="" class="copyright"> Team 5 - FundRaiser Project 2023 </p> <a asp-area="" asp-controller="Home" asp-action="Privacy" class="btn">Privacy</a>
         </div>
-    </footer>
+        </footer>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
