@@ -26,7 +26,7 @@ namespace FundRaiserProject2023.Controllers
 
         public IActionResult BackerProjects()
         {
-            return View(_context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").ToList());
+            return View(_context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages").ToList());
         }
 
         public async Task<IActionResult> BackerDetails(int? id)
@@ -36,13 +36,83 @@ namespace FundRaiserProject2023.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator")
+            var project = await _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages")
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (project == null)
             {
                 return NotFound();
             }
 
+            return View(project);
+        }
+
+        public async Task<IActionResult> FundThisProject(int? id)
+        {
+            if (id == null || _context.Projects == null)
+            {
+                return NotFound();
+            }
+
+            var project = await _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages")
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return View(project);
+        }
+
+        // GET: Projects/Edit/5
+        public async Task<IActionResult> UpdateDatabase(int? id)
+        {
+            if (id == null || _context.Projects == null)
+            {
+                return NotFound();
+            }
+
+            var project = await _context.Projects.FindAsync(id);
+            if (project == null)
+            {
+                return NotFound();
+            }
+            return View(project);
+        }
+
+        // POST: Projects/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateDatabase(int id, [Bind("Id,Title,Description,FundingGoal,CurrentFunding")] Project project, int rewardId)
+        {
+            if (id != project.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var selectedReward = _context.RewardPackages.FindAsync(rewardId);
+                    project.CurrentFunding += rewardId;
+                    _context.Update(project.CurrentFunding);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProjectExists(project.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
             return View(project);
         }
 
