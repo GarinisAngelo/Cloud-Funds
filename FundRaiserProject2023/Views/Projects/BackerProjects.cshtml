@@ -10,7 +10,7 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr style ="color:azure !important">
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -37,7 +37,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr style ="color:azure !important">
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
