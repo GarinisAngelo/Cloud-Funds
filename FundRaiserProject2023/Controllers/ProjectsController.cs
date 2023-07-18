@@ -236,5 +236,23 @@ namespace FundRaiserProject2023.Controllers
         {
           return (_context.Projects?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        [HttpPost]
+        
+        public IActionResult InsertFunding([Bind("PackageAmount")] decimal PackageAmount, [Bind("ProjectId")] int ProjectId, [Bind("BackerId")] int BackerId)
+        {
+            ProjectFunding projectFunding = new ProjectFunding()
+            {
+                Backer = _context.Backers.Find(BackerId),
+                Date = DateTime.Now,
+                Projects = _context.Projects.Find(ProjectId),
+                AmountContributed = PackageAmount
+            };
+            _context.ProjectFundings.Add(projectFunding);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
     }
 }

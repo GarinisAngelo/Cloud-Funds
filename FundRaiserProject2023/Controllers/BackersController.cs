@@ -194,5 +194,7 @@ namespace FundRaiserProject2023.Controllers
         {
           return (_context.Backers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+
+        
     }
 }
