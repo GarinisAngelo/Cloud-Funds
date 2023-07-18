@@ -1,12 +1,13 @@
 html {
   font-size: 14px;
-  
+  color :azure;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        color: azure;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -14,26 +15,32 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    color: azure;
 }
 
 
 
 
 body {
-    margin: 0;
+    margin-top: 10%;
+    margin-bottom: 20%;
     text-align: center;
     font-family: 'Sacramento', sans-serif;
     font-size: 1rem;
     /*background: #D38312; 
     background: -webkit-linear-gradient(to top, #A83279, #D38312); 
-    background: linear-gradient(to top, #A83279, #D38312);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+*/
+    background: linear-gradient(to top, #A83279, #D38312);  W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+
     background: #70e1f5;
     background: -webkit-linear-gradient(to top, #ffd194, #70e1f5);
     background: linear-gradient(to top, #ffd194, #70e1f5);
     /*background: rgb(232,152,187);
     background: linear-gradient(180deg, rgba(232,152,187,1) 0%, rgba(110,168,236,1) 100%);*/
+    background: #232526; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #414345, #232526); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: azure;
 }
 
 .header {
@@ -91,13 +98,13 @@ p {
     color: #EFEFEF;
 }
 
-/*hr {
+hr {
     border: dotted #D38312 2px;
     border-bottom: none;
-    width: 4%;
+    width: 29%;
     border-color: #AEBDCA;
-    margin: 80px auto;
-}*/
+    margin: auto;
+}
 
 
 
@@ -137,9 +144,9 @@ p {
     font-family: Arial;
     font-size: 1rem;
     font-weight: 400;
-    -webkit-border-radius: 28px;
+    -webkit-border-radius: 30px;
     -moz-border-radius: 28px;
-    border-radius: 8px;
+    border-radius: 15px;
     padding: 5px 8px 5px 8px;
     text-decoration: none;
     height: 30px;
@@ -147,7 +154,7 @@ p {
     background-image: linear-gradient(45deg,blue,#00f0a0,blue);
     background-size: 500% 400%;
     color: white;
-    border-radius: 50px;
+    border-radius: 80px;
     transition: 0.6s all;
 }
 
@@ -177,6 +184,12 @@ p {
         transition: 0.1s;
     }
 
+.image {
+    width: 75%;
+    height: auto;
+    max-width: 115px;
+}
+
 .copyright {
     width: 2%;
     height: auto;
@@ -200,3 +213,237 @@ p {
 table{
     margin-top: 2rem;
 }
+
+.center {
+    margin: auto;
+    width: 50%;
+    left: 50%;
+    right: 50%;
+    padding: 10px;
+}
+
+.footer {
+    padding: 50px 0 20px;
+    height: 20%;
+    max-height: 150px;
+    width: 100%;
+    min-width: 460px;
+}
+
+
+/*CAROUSEL*/
+#feature-carousel.carousel {
+    background-color: inherit;
+}
+
+    #feature-carousel.carousel .carousel-indicators {
+        display: flex;
+        justify-content: left;
+    }
+
+    #feature-carousel.carousel .carousel-item {
+        height: 700px;
+    }
+
+        #feature-carousel.carousel .carousel-item .item {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            #feature-carousel.carousel .carousel-item .item img {
+                width: 60%;
+                height: 100%;
+                border-radius: 20px;
+            }
+
+            #feature-carousel.carousel .carousel-item .item .text {
+                color: white;
+                padding: 100px;
+            }
+
+                #feature-carousel.carousel .carousel-item .item .text p {
+                    font-size: 10pt;
+                }
+
+                #feature-carousel.carousel .carousel-item .item .text a {
+                    background-color: purple;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    text-decoration: none;
+                }
+
+@media screen and (min-width: 1501px) {
+    #feature-carousel-with-caption {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    #feature-carousel {
+        display: none;
+    }
+
+    #feature-carousel-with-caption .fade-cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    }
+
+    #feature-carousel-with-caption img {
+        width: 100%;
+    }
+
+    #feature-carousel-with-caption .carousel-caption {
+        top: 30%;
+        left: 7%;
+        text-align: left;
+    }
+}
+
+
+/* MULTI CAROUSEL*/
+.my-multi-carousel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.my-multi-carousel.carousel {
+    background-color: white;
+    width: 1200px;
+}
+
+    .my-multi-carousel.carousel .carousel-inner {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .my-multi-carousel.carousel .carousel-inner .carousel-item {
+            display: flex;
+            margin-right: 0;
+        }
+
+            .my-multi-carousel.carousel .carousel-inner .carousel-item .item img {
+                width: 400px;
+                height: 100%;
+            }
+
+
+/* FUND REGISTERATION */
+
+.container {
+    color: white;
+    width: 800px;
+}
+
+    .container h2 {
+        margin: 100px 0 50px 0;
+    }
+
+    .container textarea {
+        resize: none;
+        height: 200px;
+    }
+
+/* OVERVIEW*/
+.content {
+    color: white;
+}
+
+    .content h1 {
+        padding: 20px 0px;
+    }
+
+    .content img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content .description {
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content form {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        padding: 10px 10px 40px 10px;
+    }
+
+        .content form .row-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .content form .column-container {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .content form .column-container select {
+                width: 70px;
+                text-align: center;
+            }
+
+        .content form button {
+            align-self: center;
+        }
+
+/* PROJECT */
+.container {
+    color: white;
+}
+
+    .container h2 {
+        padding: 40px;
+    }
+
+.list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto auto;
+}
+
+.item {
+    display: flex;
+    width: 400px;
+    height: 150px;
+    background-color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+    .item:hover {
+        color: gray;
+        box-shadow: 0px 0px 25px 2px;
+    }
+
+        .item:hover .title {
+            color: gray;
+        }
+
+    .item img {
+        width: 120px;
+        height: 100%;
+        padding: 5px;
+    }
+
+    .item .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        color: white;
+        width: 280px;
+        padding: 20px;
+    }

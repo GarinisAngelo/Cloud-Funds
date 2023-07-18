@@ -4,12 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Create
+    a
 
-<h4>ProjectCreator</h4>
+Project Creator</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 center">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -25,7 +26,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn details">Back to List</a>
 </div>
 
 @section Scripts {
