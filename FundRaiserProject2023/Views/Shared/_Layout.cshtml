@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FundRaiserProject2023</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FundRaiserProject2023.styles.css" asp-append-version="true" />
@@ -46,7 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="ProjectCreators" asp-action="Index">Project Creator</a>
                         </li>
-                        <li class="nav-item dropdown "> <!-- DROP DOWN LIST NEED TO BE DYNAMIC -->
+                        <!--<li class="nav-item dropdown "> <!-- DROP DOWN LIST NEED TO BE DYNAMIC
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Topics</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Music</a></li>
@@ -54,6 +54,9 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Arts</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Sports</a></li>
                             </ul>
+                        </li>-->
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Apis">APIs</a>
                         </li>
                     </ul>
                 </div>
