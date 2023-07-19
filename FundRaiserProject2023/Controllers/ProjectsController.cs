@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FundRaiserProject2023.DbContexts;
 using FundRaiserProject2023.Models;
+using System.Diagnostics.Eventing.Reader;
 
 namespace FundRaiserProject2023.Controllers
 {
@@ -21,7 +22,19 @@ namespace FundRaiserProject2023.Controllers
 
         public IActionResult FundedProjects()
         {
-            return View();
+            if (_context.Projects == null)
+            {
+                return NotFound();
+            }
+
+            var project = _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages")
+                .Where(m => m.CurrentFunding > 0);
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return View(project);
         }
 
         public IActionResult BackerProjects()
@@ -79,7 +92,7 @@ namespace FundRaiserProject2023.Controllers
                 return NotFound();
             }
 
-            var project = await _context.Projects
+            var project = await _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages")
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (project == null)
             {
@@ -108,6 +121,39 @@ namespace FundRaiserProject2023.Controllers
             {
                 _context.Add(project);
                 await _context.SaveChangesAsync();
+
+                if (project.ProjectPhotos != null)
+                {
+                    foreach(var photo in project.ProjectPhotos)
+                    {
+                        _context.ProjectPhotos.Add(photo);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                if (project.ProjectVideos != null)
+                {
+                    foreach (var video in project.ProjectVideos)
+                    {
+                        _context.ProjectVideos.Add(video);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                if (project.RewardPackages != null)
+                {
+                    foreach (var rp in project.RewardPackages)
+                    {
+                        _context.RewardPackages.Add(rp);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                if (project.ProjectCreator != null)
+                {
+                    _context.ProjectCreators.Add(project.ProjectCreator);
+                    await _context.SaveChangesAsync();                    
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(project);

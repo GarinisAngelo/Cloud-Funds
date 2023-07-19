@@ -4,35 +4,70 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Project Details</h1>
 
 <div>
     <h4>Project</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FundingGoal)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FundingGoal)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CurrentFunding)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CurrentFunding)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProjectPhotos)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var photo in Model.ProjectPhotos)
+            {
+                <a>@photo.PhotoName <br /> </a>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProjectVideos)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var photo in Model.ProjectVideos)
+            {
+                <a>@photo.VideoName <br /> </a>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProjectCreator)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProjectCreator.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RewardPackages)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var reward in Model.RewardPackages)
+            {
+                <a>@reward.PackageName | </a>
+                <a>@reward.PackageAmount | </a>
+                <a>@reward.RewardDescription <br /> </a>
+            }
         </dd>
     </dl>
 </div>
