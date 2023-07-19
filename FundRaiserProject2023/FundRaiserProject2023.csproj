@@ -18,7 +18,7 @@
     <None Include="Views\Categories\Details.cshtml" />
     <None Include="Views\Categories\Edit.cshtml" />
     <None Include="Views\Categories\Index.cshtml" />
-    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\IndexSlideshow.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Home\WelcomePage.cshtml" />
     <None Include="Views\ProjectCreators\Create.cshtml" />
