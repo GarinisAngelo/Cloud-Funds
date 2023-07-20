@@ -285,7 +285,10 @@ namespace FundRaiserProject2023.Controllers
 
         [HttpPost]
         
-        public IActionResult InsertFunding([Bind("PackageAmount")] decimal PackageAmount, [Bind("ProjectId")] int ProjectId, [Bind("BackerId")] int BackerId)
+        public IActionResult InsertFunding([Bind("PackageAmount")] 
+            decimal PackageAmount, 
+            [Bind("ProjectId")] int ProjectId, 
+            [Bind("BackerId")] int BackerId)
         {
             ProjectFunding projectFunding = new ProjectFunding()
             {
@@ -294,10 +297,11 @@ namespace FundRaiserProject2023.Controllers
                 Projects = _context.Projects.Find(ProjectId),
                 AmountContributed = PackageAmount
             };
+            
             _context.ProjectFundings.Add(projectFunding);
             _context.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Backers");
 
         }
     }
