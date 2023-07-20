@@ -115,7 +115,7 @@ namespace FundRaiserProject2023.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,FundingGoal,CurrentFunding")] Project project)
+        public async Task<IActionResult> Create(Project project)
         {
             if (ModelState.IsValid)
             {
@@ -151,7 +151,9 @@ namespace FundRaiserProject2023.Controllers
 
                 if (project.ProjectCreator != null)
                 {
-                    _context.ProjectCreators.Add(project.ProjectCreator);
+                    /*var creator = _context.ProjectCreators.Find(project.ProjectCreator.Id);
+                    project.ProjectCreator = creator;*/
+                    _context.Projects.Add(project);
                     await _context.SaveChangesAsync();                    
                 }
                 return RedirectToAction(nameof(Index));

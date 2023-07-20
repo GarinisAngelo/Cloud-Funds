@@ -1,7 +1,9 @@
-﻿@model FundRaiserProject2023.Models.Project
+﻿@using FundRaiserProject2023.Models
+@model FundRaiserProject2023.Models.Project
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_ProjectCreatorLayout.cshtml";
 }
 
 <h1>Create</h1>
@@ -11,12 +13,7 @@
 <div class="row">
     <div class="col-md-4 center">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ProjectCreator" class="control-label"></label>
-                <input asp-for="ProjectCreator" class="form-control" />
-                <span asp-validation-for="ProjectCreator" class="text-danger"></span>
-            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>            
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -39,13 +36,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="ProjectPhotos" class="control-label"></label>
-                <input type="file" asp-for="ProjectPhotos" class="form-control" />
+                <input asp-for="ProjectPhotos" class="form-control" />
                 <span asp-validation-for="ProjectPhotos" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ProjectVideos" class="control-label"></label>
-                <input type ="file" asp-for="ProjectVideos" class="form-control" />
+                <input asp-for="ProjectVideos" class="form-control" />
                 <span asp-validation-for="ProjectVideos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectCreator.Name" class="control-label"></label>
+                <input asp-for="ProjectCreator.Name" class="form-control" />
+                <span asp-validation-for="ProjectCreator.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
