@@ -10,20 +10,38 @@
 <p>
     <a asp-action="Create" class="btn">Create New</a>
 </p>
-<table class="table center" style="color:azure !important">
+<table class="table" style="color:azure !important">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.AmountContributed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Backer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Projects)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+            <tr style="color:azure !important">
             <td>
                 @Html.DisplayFor(modelItem => item.AmountContributed)
+            </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Backer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Projects)
             </td>
             <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" class="btn">Edit</a> |
