@@ -38,14 +38,12 @@
                  @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Backer)
+                @Html.DisplayFor(modelItem => item.Backer.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Projects)
+                @Html.DisplayFor(modelItem => item.Projects.Title)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn details">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn delete">Delete</a>
             </td>
         </tr>
