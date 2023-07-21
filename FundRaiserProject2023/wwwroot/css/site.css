@@ -222,6 +222,15 @@ table{
     padding: 10px;
 }
 
+.medium1 {
+    margin: 2.2rem;
+    width: 90%;
+    max-width: 650px;
+    left: 50%;
+    right: 50%;
+    padding: 25px;
+}
+
 .footer {
     padding: 50px 0 20px;
     height: 20%;
