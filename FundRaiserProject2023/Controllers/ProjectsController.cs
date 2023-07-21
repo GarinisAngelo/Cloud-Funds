@@ -144,7 +144,7 @@ namespace FundRaiserProject2023.Controllers
                 {
                     foreach (var rp in project.RewardPackages)
                     {
-                        _context.RewardPackages.Add(rp);
+                        _context.Projects.Update(project);
                         await _context.SaveChangesAsync();
                     }
                 }
@@ -153,7 +153,7 @@ namespace FundRaiserProject2023.Controllers
                 {
                     /*var creator = _context.ProjectCreators.Find(project.ProjectCreator.Id);
                     project.ProjectCreator = creator;*/
-                    _context.Projects.Add(project);
+                    _context.Projects.Update(project);
                     await _context.SaveChangesAsync();                    
                 }
                 return RedirectToAction(nameof(Index));
