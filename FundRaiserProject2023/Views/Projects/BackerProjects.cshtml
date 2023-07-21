@@ -67,7 +67,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ProjectCreator.Name)
             </td>
-            <td>
+            <td class="center">
                 <a asp-action="BackerDetails" asp-route-id="@item.Id" class="btn details">Project Details</a>
                 <a asp-action="FundThisProject" asp-route-id="@item.Id" class="btn">Fund this Project</a>
             </td>
