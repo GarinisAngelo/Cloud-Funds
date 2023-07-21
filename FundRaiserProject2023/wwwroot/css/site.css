@@ -677,3 +677,8 @@ strong {
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
 }
+
+.slim-line {
+    border-bottom: 1px solid #556270;
+    width: 30%;
+}
