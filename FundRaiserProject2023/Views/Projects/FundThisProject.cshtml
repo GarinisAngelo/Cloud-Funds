@@ -6,11 +6,9 @@
     Layout = "~/Views/Shared/_BackerLayout.cshtml";
 }
 
-<h1>Project Details</h1>
+<h1 style="margin-bottom: 20px">Project Details</h1>
 
 <div>
-    <h4>Project</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
@@ -18,24 +16,28 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Title)
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FundingGoal)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FundingGoal)
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CurrentFunding)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CurrentFunding)
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProjectPhotos)
         </dt>
@@ -45,6 +47,7 @@
                 <a>@photo.PhotoName <br /> </a>
             }
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProjectVideos)
         </dt>
@@ -54,12 +57,14 @@
                 <a>@photo.VideoName <br /> </a>
             }
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ProjectCreator)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ProjectCreator.Name)
         </dd>
+        <div class="slim-line"></div>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.RewardPackages)
         </dt>
@@ -93,4 +98,3 @@
         </form>
     </dl>
 </div>
-
