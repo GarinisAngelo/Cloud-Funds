@@ -2,6 +2,7 @@
 using FundRaiserProject2023.Services;
 using Microsoft.Data.SqlClient;
 using FundRaiserProject2023.APIControllers;
+using System.Configuration;
 
 //connection to database
 //var ConnectToDB = new ConnectToDB();
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<OurDbContext>();
+builder.Services.AddScoped<IProjectService, ProjectServices>();
 
 builder.Services.AddEndpointsApiExplorer();
 

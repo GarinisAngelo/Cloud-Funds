@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FundRaiserProject2023.Services
 {
-    public class ProjectServices : IServices
+    public class ProjectServices : IProjectService
     {
 
         private readonly OurDbContext _ourDbContext;
@@ -72,5 +72,12 @@ namespace FundRaiserProject2023.Services
             }
 
         }
+
+        public decimal UpdateAmount(decimal PackageAmount, decimal CurrentFunding)
+        {
+            CurrentFunding += PackageAmount;
+            return CurrentFunding;
+        }
     }
 }
+

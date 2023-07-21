@@ -8,16 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using FundRaiserProject2023.DbContexts;
 using FundRaiserProject2023.Models;
 using System.Diagnostics.Eventing.Reader;
+using FundRaiserProject2023.Services;
 
 namespace FundRaiserProject2023.Controllers
 {
     public class ProjectsController : Controller
     {
         private readonly OurDbContext _context;
+        private readonly IProjectService _services;
 
-        public ProjectsController(OurDbContext context)
+        public ProjectsController(OurDbContext context, IProjectService services)
         {
             _context = context;
+            _services = services;
         }
 
         public IActionResult FundedProjects()
@@ -287,8 +290,7 @@ namespace FundRaiserProject2023.Controllers
 
         [HttpPost]
         
-        public IActionResult InsertFunding([Bind("PackageAmount")] 
-            decimal PackageAmount, 
+        public IActionResult InsertFunding([Bind("PackageAmount")] decimal PackageAmount, 
             [Bind("ProjectId")] int ProjectId, 
             [Bind("BackerId")] int BackerId)
         {
@@ -299,7 +301,17 @@ namespace FundRaiserProject2023.Controllers
                 Projects = _context.Projects.Find(ProjectId),
                 AmountContributed = PackageAmount
             };
-            
+
+            var project = _context.Projects.Find(ProjectId);            
+            var newCurrentFund = _services.UpdateAmount(PackageAmount, project.CurrentFunding);
+            if(project.FundingGoal >= newCurrentFund)
+            {
+                project.CurrentFunding = newCurrentFund;
+            }
+            else
+            {
+                project.CurrentFunding = project.FundingGoal;
+            }            
             _context.ProjectFundings.Add(projectFunding);
             _context.SaveChanges();
 
