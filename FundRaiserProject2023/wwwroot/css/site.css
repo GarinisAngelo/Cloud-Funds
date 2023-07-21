@@ -679,6 +679,7 @@ strong {
 }
 
 .slim-line {
-    border-bottom: 1px solid #556270;
-    width: 30%;
+    border-bottom: 1px dashed #556270;
+    width: 85%;
+    margin: 4px;
 }
