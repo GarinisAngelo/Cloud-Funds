@@ -30,14 +30,25 @@ namespace FundRaiserProject2023.Controllers
                 return NotFound();
             }
 
-            var project = _context.Projects.Include("ProjectPhotos").Include("ProjectVideos").Include("ProjectCreator").Include("RewardPackages")
-                .Where(m => m.CurrentFunding > 0);
-            if (project == null)
+            var projectQuery = _context.Projects
+                                .Join(_context.ProjectFundings,
+                                project => project.Id,
+                                funding => funding.Projects.Id,
+                                (project, funding) => new Project
+                                {
+                                    Title = project.Title,
+                                    Description = project.Description,
+                                    FundingGoal = project.FundingGoal,
+                                    CurrentFunding = project.CurrentFunding
+                                })
+                            .Distinct()
+                            .ToList();
+            if (projectQuery == null)
             {
                 return NotFound();
             }
 
-            return View(project);
+            return View(projectQuery);
         }
 
         public IActionResult BackerProjects()
@@ -164,37 +175,6 @@ namespace FundRaiserProject2023.Controllers
             return View(project);
         }
 
-        public IActionResult PCCreate()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> PCCreate([Bind("Id,Title,Description,FundingGoal,CurrentFunding")] Project project,
-            [Bind("Name")] ProjectCreator projectCreator,
-            [Bind("PhotoName")] ProjectPhotos projectPhotos,
-            [Bind("VideoName")] ProjectVideos projectVideos)
-        {
-            if (ModelState.IsValid)
-            {             
-                _context.Projects.Add(project);
-                var CreatorName = await _context.ProjectCreators.FindAsync(projectCreator);
-                var PName = await _context.ProjectPhotos.FindAsync(projectPhotos);
-                var VName = await _context.ProjectVideos.FindAsync(projectVideos);
-
-                project.ProjectCreator = CreatorName;
-                project.ProjectPhotos = (IEnumerable<ProjectPhotos>)PName;
-                project.ProjectVideos = (IEnumerable<ProjectVideos>)VName;
-
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(project);
-        }
-
-
         // GET: Projects/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -289,8 +269,8 @@ namespace FundRaiserProject2023.Controllers
         }
 
         [HttpPost]
-        
-        public IActionResult InsertFunding([Bind("PackageAmount")] decimal PackageAmount, 
+
+        public IActionResult InsertFunding([Bind("PackageAmount")] decimal PackageAmount,
             [Bind("ProjectId")] int ProjectId, 
             [Bind("BackerId")] int BackerId)
         {
@@ -315,7 +295,7 @@ namespace FundRaiserProject2023.Controllers
             _context.ProjectFundings.Add(projectFunding);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Backers");
+            return RedirectToAction("BackerProjects", "Projects");
 
         }
     }
