@@ -18,8 +18,9 @@ namespace FundRaiserProject2023.Models
         public decimal AmountContributed { get; set; }
 
         [Display(Name = "Time")]
-        public DateTime Date = DateTime.Now;
+        public DateTime Date { get; set; }
         public virtual Backer? Backer { get; set; }
         public virtual Project? Projects { get; set; }
+
     }
 }

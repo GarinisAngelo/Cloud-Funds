@@ -124,6 +124,9 @@ namespace FundRaiserProject2023.Migrations
                     b.Property<int?>("BackerId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<int?>("ProjectsId")
                         .HasColumnType("int");
 

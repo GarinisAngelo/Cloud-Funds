@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FundRaiserProject2023.Migrations
 {
     [DbContext(typeof(OurDbContext))]
-    [Migration("20230716162309_Initial")]
-    partial class Initial
+    [Migration("20230721114207_Initial1")]
+    partial class Initial1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -126,6 +126,9 @@ namespace FundRaiserProject2023.Migrations
 
                     b.Property<int?>("BackerId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("ProjectsId")
                         .HasColumnType("int");

@@ -1,16 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace FundRaiserProject2023.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initial1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "ProjectCreators",
                 columns: table => new
                 {
@@ -142,7 +143,7 @@ namespace FundRaiserProject2023.Migrations
                         column: x => x.ProjectsId,
                         principalTable: "Projects",
                         principalColumn: "Id");
-                });
+                });*/
 
             migrationBuilder.CreateTable(
                 name: "ProjectFundings",
@@ -151,6 +152,7 @@ namespace FundRaiserProject2023.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AmountContributed = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BackerId = table.Column<int>(type: "int", nullable: true),
                     ProjectsId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -168,7 +170,7 @@ namespace FundRaiserProject2023.Migrations
                         principalTable: "Projects",
                         principalColumn: "Id");
                 });
-
+            /*
             migrationBuilder.CreateIndex(
                 name: "IX_Backers_ProjectId",
                 table: "Backers",
@@ -178,7 +180,7 @@ namespace FundRaiserProject2023.Migrations
                 name: "IX_Categories_ProjectsId",
                 table: "Categories",
                 column: "ProjectsId");
-
+            */
             migrationBuilder.CreateIndex(
                 name: "IX_ProjectFundings_BackerId",
                 table: "ProjectFundings",
@@ -188,8 +190,8 @@ namespace FundRaiserProject2023.Migrations
                 name: "IX_ProjectFundings_ProjectsId",
                 table: "ProjectFundings",
                 column: "ProjectsId");
-
-            migrationBuilder.CreateIndex(
+            
+            /*migrationBuilder.CreateIndex(
                 name: "IX_ProjectPhotos_ProjectsId",
                 table: "ProjectPhotos",
                 column: "ProjectsId");
@@ -207,7 +209,7 @@ namespace FundRaiserProject2023.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_RewardPackages_ProjectsId",
                 table: "RewardPackages",
-                column: "ProjectsId");
+                column: "ProjectsId");*/
         }
 
         /// <inheritdoc />
