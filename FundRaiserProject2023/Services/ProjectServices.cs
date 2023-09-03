@@ -73,12 +73,6 @@ namespace FundRaiserProject2023.Services
             }
 
         }
-
-        public decimal UpdateAmount(decimal PackageAmount, decimal CurrentFunding)
-        {
-            CurrentFunding += PackageAmount;
-            return CurrentFunding;
-        }
     }
 }
 

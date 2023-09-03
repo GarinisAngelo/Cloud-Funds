@@ -283,7 +283,7 @@ namespace FundRaiserProject2023.Controllers
             };
 
             var project = _context.Projects.Find(ProjectId);            
-            var newCurrentFund = _services.UpdateAmount(PackageAmount, project.CurrentFunding);
+            var newCurrentFund = PackageAmount + project.CurrentFunding;
             if(project.FundingGoal >= newCurrentFund)
             {
                 project.CurrentFunding = newCurrentFund;

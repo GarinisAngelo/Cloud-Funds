@@ -12,6 +12,5 @@ namespace FundRaiserProject2023.Services
         public void Read();
         public void Update();
         public void Delete();
-        public decimal UpdateAmount(decimal a, decimal b);
     }
 }
